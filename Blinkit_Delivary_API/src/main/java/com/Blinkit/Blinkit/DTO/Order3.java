@@ -6,9 +6,27 @@ package com.Blinkit.Blinkit.DTO;
 
 public class Order3 {
 	
-	int itemid;
-	String itemname;
-	double price;
+	int productid;
+	String productname;
+	double productprice;
+	public int getProductid() {
+		return productid;
+	}
+	public void setProductid(int productid) {
+		this.productid = productid;
+	}
+	public String getProductname() {
+		return productname;
+	}
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+	public double getProductprice() {
+		return productprice;
+	}
+	public void setProductprice(double productprice) {
+		this.productprice = productprice;
+	}
 	
 
 	
@@ -21,24 +39,6 @@ public class Order3 {
 	
 	
 	
-	public int getItemid() {
-		return itemid;
-	}
-	public void setItemid(int itemid) {
-		this.itemid = itemid;
-	}
-	public String getItemname() {
-		return itemname;
-	}
-	public void setItemname(String itemname) {
-		this.itemname = itemname;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
 	
      
 }

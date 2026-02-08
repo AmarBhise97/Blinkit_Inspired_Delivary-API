@@ -32,14 +32,14 @@ public class ReviewService {
 					ReviewDto review = new ReviewDto();
 					review.setComment(rev.getComment());
 					review.setReviewid(rev.getReviewid());
-					review.setProductname(rev.getProductname());
+					review.setProductna(rev.getProductna());
 					review.setReview_time(rev.getReview_time());
 					review.setRating(rev.getRating());
 					
 					
-					review.setItemid(rev.getOrder().getItemid());
-					review.setPrice(rev.getOrder().getPrice());
-					review.setItemname(rev.getOrder().getItemname());
+					review.setProductid(rev.getOrder().getProductid());
+					review.setProductprice(rev.getOrder().getProductprice());
+					review.setProductname(rev.getOrder().getPoductname());
 					review.setOrder_left_time(rev.getOrder().getOrder_left_time());
 					
 					review.setUserid(rev.getUser().getUserid());

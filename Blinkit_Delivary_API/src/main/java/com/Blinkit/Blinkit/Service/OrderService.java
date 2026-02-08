@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.Blinkit.Blinkit.DTO.OrderDto;
+import com.Blinkit.Blinkit.DTO.Review3dto;
 import com.Blinkit.Blinkit.Entity.Order1;
 import com.Blinkit.Blinkit.Repository.OrderRepository;
 
@@ -37,9 +38,9 @@ public class OrderService {
 					orderdto.setDistrict(order.getAddress().getDistrict());
 					
 					
-					orderdto.setItemid(order.getItemid());
-					orderdto.setItemname(order.getItemname());
-					orderdto.setPrice(order.getPrice());
+					orderdto.setProductid(order.getProductid());
+					orderdto.setProductname(order.getPoductname());
+					orderdto.setProductprice(order.getProductprice());
 					orderdto.setOrder_left_time(order.getOrder_left_time());
 					
 					orderdto.setUserid(order.getUser().getUserid());
@@ -47,13 +48,19 @@ public class OrderService {
 					orderdto.setLoging_time(order.getUser().getLoging_time());
 					
 					
-					orderdto.setReviewid(order.getReview().getReviewid());
-					orderdto.setProductname(order.getReview().getProductname());
-					orderdto.setRating(order.getReview().getRating());
-					orderdto.setComment(order.getReview().getComment());
-					orderdto.setReview_time(order.getReview().getReview_time());
 					
 					
+					List<Review3dto> rev =order.getReview().stream()
+							.map((review)->{
+								Review3dto revi=new Review3dto();
+								revi.setProductna(review.getProductna());
+								revi.setRating(review.getRating());
+								revi.setReview_time(revi.getReview_time());
+								revi.setReviewid(review.getReviewid());
+								
+								return revi;
+							})
+							.collect(Collectors.toList());
 					
 					
 					

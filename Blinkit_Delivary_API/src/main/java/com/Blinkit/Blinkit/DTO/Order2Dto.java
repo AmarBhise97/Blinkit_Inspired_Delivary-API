@@ -6,9 +6,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 public class Order2Dto {
 	
-	int itemid;
-	String itemname;
-	double price;
+	int Productid;
+	String Productname;
+	double Productprice;
 	
 	@CreationTimestamp
     private LocalDateTime order_left_time;
@@ -21,24 +21,25 @@ public class Order2Dto {
 	public void setOrder_left_time(LocalDateTime order_left_time) {
 		this.order_left_time = order_left_time;
 	}
-	public int getItemid() {
-		return itemid;
+	public int getProductid() {
+		return Productid;
 	}
-	public void setItemid(int itemid) {
-		this.itemid = itemid;
+	public void setProductid(int productid) {
+		Productid = productid;
 	}
-	public String getItemname() {
-		return itemname;
+	public String getProductname() {
+		return Productname;
 	}
-	public void setItemname(String itemname) {
-		this.itemname = itemname;
+	public void setProductname(String productname) {
+		Productname = productname;
 	}
-	public double getPrice() {
-		return price;
+	public double getProductprice() {
+		return Productprice;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setProductprice(double productprice) {
+		Productprice = productprice;
 	}
+	
 	
 	
 

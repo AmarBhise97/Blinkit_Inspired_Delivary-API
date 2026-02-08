@@ -4,21 +4,27 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+
+@Table(name="user")
 public class User1 {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	int userid;
 	String username;
-	String usermonumber;
+	String user_number;
 	
 	@OneToMany(mappedBy="user")
 	private List<Order1> order;
@@ -71,12 +77,13 @@ public class User1 {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getUsermonumber() {
-		return usermonumber;
+	public String getUser_number() {
+		return user_number;
 	}
-	public void setUsermonumber(String usermonumber) {
-		this.usermonumber = usermonumber;
+	public void setUser_number(String user_number) {
+		this.user_number = user_number;
 	}
+	
 	
 	
 	

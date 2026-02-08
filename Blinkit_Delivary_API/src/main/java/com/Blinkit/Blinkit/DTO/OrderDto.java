@@ -1,14 +1,15 @@
 package com.Blinkit.Blinkit.DTO;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 public class OrderDto {
 	
-	int itemid;
-	String itemname;
-	double price;
+	int productid;
+	String productname;
+	double productprice;
 	@CreationTimestamp
     private LocalDateTime order_left_time;
 	
@@ -25,52 +26,32 @@ public class OrderDto {
 	String district;
 	String state;
 	
-	int reviewid;
-	String productname;
-	String rating;
-	String comment;
-	@CreationTimestamp
-	private LocalDateTime review_time;
+	List<Review3dto> review;
 	
 	
 	
 	
+	
+	public List<Review3dto> getReview() {
+		return review;
+	}
+	public void setReview(List<Review3dto> review) {
+		this.review = review;
+	}
 	public LocalDateTime getLoging_time() {
 		return loging_time;
 	}
 	public void setLoging_time(LocalDateTime loging_time) {
 		this.loging_time = loging_time;
 	}
-	public LocalDateTime getReview_time() {
-		return review_time;
-	}
-	public void setReview_time(LocalDateTime review_time) {
-		this.review_time = review_time;
-	}
+	
 	public LocalDateTime getOrder_left_time() {
 		return order_left_time;
 	}
 	public void setOrder_left_time(LocalDateTime order_left_time) {
 		this.order_left_time = order_left_time;
 	}
-	public int getItemid() {
-		return itemid;
-	}
-	public void setItemid(int itemid) {
-		this.itemid = itemid;
-	}
-	public String getItemname() {
-		return itemname;
-	}
-	public void setItemname(String itemname) {
-		this.itemname = itemname;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
+	
 	
 
 	public int getUserid() {
@@ -109,30 +90,30 @@ public class OrderDto {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getReviewid() {
-		return reviewid;
-	}
-	public void setReviewid(int reviewid) {
-		this.reviewid = reviewid;
-	}
+	
 	public String getProductname() {
 		return productname;
 	}
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}
-	public String getRating() {
-		return rating;
+	
+	
+	
+	public int getProductid() {
+		return productid;
 	}
-	public void setRating(String rating) {
-		this.rating = rating;
+	public void setProductid(int productid) {
+		this.productid = productid;
 	}
-	public String getComment() {
-		return comment;
+	public double getProductprice() {
+		return productprice;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setProductprice(double productprice) {
+		this.productprice = productprice;
 	}
+	
+	
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.Blinkit.Blinkit.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -27,6 +28,10 @@ public class UserService {
 		return userrepo.save(user1);
 		
 	}
+	public User1 getbyidd(int userid) {
+		Optional<User1> user=userrepo.findById(userid);
+		return user.get();
+	}
 	public List<UserDto> getall(){
 		return userrepo.findAll().stream()
 				.map((user)->{
@@ -49,9 +54,10 @@ public class UserService {
 					List<Order2Dto> order = user.getOrder().stream()
 							.map((ord)->{
 							Order2Dto order1= new Order2Dto();
-							order1.setItemid(ord.getItemid());
-							order1.setItemname(ord.getItemname());
-							order1.setPrice(ord.getPrice());
+							order1.setProductid(ord.getProductid());
+							order1.setProductname(ord.getPoductname());
+							order1.setProductprice(ord.getProductprice());
+						
 							order1.setOrder_left_time(ord.getOrder_left_time());
 							
 							
@@ -63,8 +69,9 @@ public class UserService {
 								Review2Dto review = new Review2Dto();
 								review.setComment(rev.getComment());
 								review.setReviewid(rev.getReviewid());
-								review.setProductname(rev.getProductname());
+								
 								review.setRating(rev.getRating());
+								review.setProductna(rev.getProductna());
 								review.setReview_time(rev.getReview_time());
 								
 								

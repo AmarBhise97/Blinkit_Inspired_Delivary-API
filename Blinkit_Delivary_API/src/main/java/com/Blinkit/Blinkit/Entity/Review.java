@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+
 
 @Entity
 public class Review {
@@ -19,7 +19,7 @@ public class Review {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int reviewid;
 	
-	String productname;
+	String productna;
 	String rating;
 	String comment;
 	
@@ -28,7 +28,7 @@ public class Review {
 	User1 user;
 	
 	@JoinColumn
-	@OneToOne
+	@ManyToOne
 	private Order1 order;
 	
 	@CreationTimestamp
@@ -60,17 +60,18 @@ public class Review {
 	public void setReviewid(int reviewid) {
 		this.reviewid = reviewid;
 	}
-	public String getProductname() {
-		return productname;
-	}
-	public void setProductname(String productname) {
-		this.productname = productname;
-	}
+	
 	public String getRating() {
 		return rating;
 	}
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+	public String getProductna() {
+		return productna;
+	}
+	public void setProductna(String productna) {
+		this.productna = productna;
 	}
 	public String getComment() {
 		return comment;

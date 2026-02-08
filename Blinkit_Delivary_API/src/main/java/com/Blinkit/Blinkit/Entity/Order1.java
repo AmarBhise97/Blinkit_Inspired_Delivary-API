@@ -1,6 +1,7 @@
 package com.Blinkit.Blinkit.Entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,17 +11,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
+
+
 
 
 @Entity
+
 public class Order1 {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int itemid;
-	String itemname;
-	double price;
+	int productid;
+	String poductname;
+	double productprice;
 	
 	
 	@JoinColumn(name = "user")
@@ -31,8 +35,8 @@ public class Order1 {
 	@ManyToOne
 	Address address;
 	
-	@OneToOne(mappedBy="order")
-	private Review review;
+	@OneToMany(mappedBy="order")
+	private List<Review> review;
 	
 	@CreationTimestamp
     private LocalDateTime order_left_time;
@@ -48,38 +52,41 @@ public class Order1 {
 		this.order_left_time = order_left_time;
 	}
 
-	public Review getReview() {
-		System.out.println("****review*****"+review);
-			
+	
+
+	
+
+	
+	public List<Review> getReview() {
 		return review;
 	}
 
-	public void setReview(Review review) {
+	public void setReview(List<Review> review) {
 		this.review = review;
 	}
 
-	public int getItemid() {
-		return itemid;
+	public int getProductid() {
+		return productid;
 	}
 
-	public void setItemid(int itemid) {
-		this.itemid = itemid;
+	public void setProductid(int productid) {
+		this.productid = productid;
 	}
 
-	public String getItemname() {
-		return itemname;
+	public String getPoductname() {
+		return poductname;
 	}
 
-	public void setItemname(String itemname) {
-		this.itemname = itemname;
+	public void setPoductname(String poductname) {
+		this.poductname = poductname;
 	}
 
-	public double getPrice() {
-		return price;
+	public double getProductprice() {
+		return productprice;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setProductprice(double productprice) {
+		this.productprice = productprice;
 	}
 
 	public User1 getUser() {

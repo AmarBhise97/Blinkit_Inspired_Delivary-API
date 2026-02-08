@@ -37,9 +37,9 @@ public class AddressService {
 				List<Order3> order3=address.getOrder().stream()
 						.map((odd)->{
 							Order3 odd3 = new Order3();
-							odd3.setItemid(odd.getItemid());
-							odd3.setItemname(odd.getItemname());
-							odd3.setPrice(odd.getPrice());
+							odd3.setProductid(odd.getProductid());
+							odd3.setProductname(odd.getPoductname());
+							odd3.setProductprice(odd.getProductprice());
 							
 							
 							

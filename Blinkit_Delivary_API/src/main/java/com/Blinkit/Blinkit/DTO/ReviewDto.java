@@ -5,8 +5,9 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 
 public class ReviewDto {
+	
 	int reviewid;
-	String productname;
+	String productna;
 	String rating;
 	String comment;
 	@CreationTimestamp
@@ -18,9 +19,9 @@ public class ReviewDto {
 	@CreationTimestamp
 	private LocalDateTime  loging_time;
 	
-	int itemid;
-	String itemname;
-	double price;
+	int productid;
+	String productname;
+	double productprice;
 	@CreationTimestamp
     private LocalDateTime order_left_time;
 	
@@ -83,25 +84,24 @@ public class ReviewDto {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public int getItemid() {
-		return itemid;
+	public String getProductna() {
+		return productna;
 	}
-	public void setItemid(int itemid) {
-		this.itemid = itemid;
+	public void setProductna(String productna) {
+		this.productna = productna;
 	}
-	public String getItemname() {
-		return itemname;
+	public int getProductid() {
+		return productid;
 	}
-	public void setItemname(String itemname) {
-		this.itemname = itemname;
+	public void setProductid(int productid) {
+		this.productid = productid;
 	}
-	public double getPrice() {
-		return price;
+	public double getProductprice() {
+		return productprice;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setProductprice(double productprice) {
+		this.productprice = productprice;
 	}
-	
 	
 	
 
