@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,14 +27,14 @@ public class User1 {
 	String username;
 	String user_number;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user" , cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Order1> order;
 	
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user" ,cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Address> address;
 
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user" , cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Review>review;
 	
 	@CreationTimestamp

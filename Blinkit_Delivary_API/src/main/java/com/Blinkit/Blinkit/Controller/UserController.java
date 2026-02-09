@@ -3,7 +3,9 @@ package com.Blinkit.Blinkit.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +31,7 @@ public class UserController {
 		return userservice.adduser(user1);
 	}
 	@GetMapping("getbyuserid/{userid}")
-	public User1 getbyid(@PathVariable("userid") int userid) {
+	public UserDto getbyid(@PathVariable("userid") int userid) throws Exception {
 		return userservice.getbyidd(userid);
 		
 	}
@@ -37,5 +39,10 @@ public class UserController {
 	public List<UserDto> getuser(){
 		return userservice.getall();
 	}
+//	@DeleteMapping("/delete/{id}")
+//	public ResponseEntity<UserDto> deleteuser(@PathVariable ("id") int userid) throws Exception {
+//		//return userservice.deletebyid(userid);
+//		return ResponseEntity.ok(userservice.deletebyid(userid));
+//	}
 
 }

@@ -27,7 +27,7 @@ public class OrderController {
 	}
 	
 	@PostMapping("/addorder")
-	public Order1 addorder(@RequestBody Order1 Order1) {
+	public Order1 addorder(@RequestBody Order1 Order1) throws Exception {
 		
 		return orderservice.addorder(Order1);
 	}

@@ -5,6 +5,8 @@ public class Address2Dto {
 	int pincode;
 	String city;
 	String state;
+	
+	
 	public int getPincode() {
 		return pincode;
 	}
