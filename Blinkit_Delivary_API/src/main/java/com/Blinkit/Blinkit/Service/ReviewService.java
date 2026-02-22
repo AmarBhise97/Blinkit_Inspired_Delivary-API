@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.Blinkit.Blinkit.DTO.ReviewDto;
@@ -20,12 +22,12 @@ public class ReviewService {
 		this.reviewrepo=reviewrepo;
 	}
 	
-	public Review addreview(Review review) {
+	public ResponseEntity<Review> addreview(Review review) {
 		
-		return reviewrepo.save(review);
+		return new ResponseEntity<Review>(reviewrepo.save(review) ,HttpStatus.CREATED);
 	}
 	
-	public List<ReviewDto> getallreview(){
+	public List<ResponseEntity<ReviewDto>> getallreview(){
 		
 		return reviewrepo.findAll().stream()
 				.map((rev)->{
@@ -47,7 +49,7 @@ public class ReviewService {
 					review.setLoging_time(rev.getUser().getLoging_time());
 					
 					
-					return review;
+					return new ResponseEntity<ReviewDto>(review,HttpStatus.CREATED);
 				})
 				.collect(Collectors.toList());
 	}

@@ -11,6 +11,7 @@ public class UserDto {
 	
 	int userid;
 	String username;
+	String user_number;
 	@CreationTimestamp
 	private LocalDateTime  loging_time;
 	
@@ -66,6 +67,14 @@ public class UserDto {
 
 	public void setOrder2(List<Order2Dto> order2) {
 		this.order2 = order2;
+	}
+
+	public String getUser_number() {
+		return user_number;
+	}
+
+	public void setUser_number(String user_number) {
+		this.user_number = user_number;
 	}
 	
 	

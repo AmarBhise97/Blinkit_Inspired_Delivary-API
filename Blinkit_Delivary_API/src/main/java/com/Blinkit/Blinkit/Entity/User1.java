@@ -27,14 +27,14 @@ public class User1 {
 	String username;
 	String user_number;
 	
-	@OneToMany(mappedBy="user" , cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToMany(mappedBy="user" )
 	private List<Order1> order;
 	
 	
-	@OneToMany(mappedBy="user" ,cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="user" ,cascade=CascadeType.ALL)
 	private List<Address> address;
 
-	@OneToMany(mappedBy="user" , cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="user")
 	private List<Review>review;
 	
 	@CreationTimestamp

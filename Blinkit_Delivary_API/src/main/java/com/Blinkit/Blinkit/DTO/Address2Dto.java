@@ -1,12 +1,26 @@
 package com.Blinkit.Blinkit.DTO;
 
 public class Address2Dto {
-	
+	int addressid;
 	int pincode;
 	String city;
 	String state;
+	String district;
 	
 	
+	
+	public int getAddressid() {
+		return addressid;
+	}
+	public void setAddressid(int addressid) {
+		this.addressid = addressid;
+	}
+	public String getDistrict() {
+		return district;
+	}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
 	public int getPincode() {
 		return pincode;
 	}

@@ -1,7 +1,6 @@
 package com.Blinkit.Blinkit.Entity;
 
-import java.util.List;
-
+import java.util.List;import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +15,7 @@ public class Address {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	int addressid;
 	int pincode;
 	String city;
 	String district;
@@ -26,9 +26,19 @@ public class Address {
 	private List<Order1> order;
 	
 	
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "user")
 	private User1 user;
+
+
+	public int getAddressid() {
+		return addressid;
+	}
+
+
+	public void setAddressid(int addressid) {
+		this.addressid = addressid;
+	}
 
 
 	public int getPincode() {
@@ -90,11 +100,5 @@ public class Address {
 		this.user = user;
 	}
 
-
-	
-	
-	
-	
-	
-
 }
+	

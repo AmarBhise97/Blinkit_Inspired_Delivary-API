@@ -20,7 +20,7 @@ public class OrderDto {
 	@CreationTimestamp
 	private LocalDateTime  loging_time;
 	
-	
+	int addressid;
 	int pincode;
 	String city;
 	String district;
@@ -111,6 +111,12 @@ public class OrderDto {
 	}
 	public void setProductprice(double productprice) {
 		this.productprice = productprice;
+	}
+	public int getAddressid() {
+		return addressid;
+	}
+	public void setAddressid(int addressid) {
+		this.addressid = addressid;
 	}
 	
 	

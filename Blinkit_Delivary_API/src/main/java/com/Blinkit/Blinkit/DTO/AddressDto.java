@@ -3,6 +3,7 @@ package com.Blinkit.Blinkit.DTO;
 import java.util.List;
 
 public class AddressDto {
+	int addressid;
 	int pincode;
 	String city;
 	String district;
@@ -12,6 +13,15 @@ public class AddressDto {
 	String username;
 	
 	List<Order3> order;
+	
+
+	public int getAddressid() {
+		return addressid;
+	}
+
+	public void setAddressid(int addressid) {
+		this.addressid = addressid;
+	}
 
 	public int getPincode() {
 		return pincode;
