@@ -1,10 +1,13 @@
 package com.Blinkit.Blinkit.Service;
 
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -45,9 +48,9 @@ public class AddressService {
 	
 	
 	
-	public ResponseEntity<List<AddressDto>> getaddress() {
-
-	    List<AddressDto> list = addressrepo.findAll().stream()
+	public ResponseEntity<List<AddressDto>> getaddress(int num,int size) {
+        Pageable pageable = PageRequest.of(num,size);
+	    List<AddressDto> list = addressrepo.findAll(pageable).stream()
 	            .map(address -> {
 	                AddressDto add = new AddressDto();
 

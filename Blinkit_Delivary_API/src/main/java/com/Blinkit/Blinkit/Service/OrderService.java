@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -41,9 +43,9 @@ public class OrderService {
                 return new ResponseEntity<Order1>(orderrepo.save(order1),HttpStatus.CREATED);
 	}
 	
-	public List<ResponseEntity<OrderDto>> getorder(){
-		
-		return orderrepo.findAll().stream()
+	public List<ResponseEntity<OrderDto>> getorder(int num,int size){
+		Pageable pageable =PageRequest.of(num, size);
+		return orderrepo.findAll(pageable).stream()
 				.map((order)->{
 					OrderDto orderdto = new OrderDto();
 					orderdto.setAddressid(order.getProductid());

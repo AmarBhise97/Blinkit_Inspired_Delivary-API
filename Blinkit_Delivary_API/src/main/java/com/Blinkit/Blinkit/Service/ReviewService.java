@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,9 +29,9 @@ public class ReviewService {
 		return new ResponseEntity<Review>(reviewrepo.save(review) ,HttpStatus.CREATED);
 	}
 	
-	public List<ResponseEntity<ReviewDto>> getallreview(){
-		
-		return reviewrepo.findAll().stream()
+	public List<ResponseEntity<ReviewDto>> getallreview(int num,int size){
+		Pageable pageable = PageRequest.of(num, size);
+		return reviewrepo.findAll(pageable).stream()
 				.map((rev)->{
 					ReviewDto review = new ReviewDto();
 					review.setComment(rev.getComment());

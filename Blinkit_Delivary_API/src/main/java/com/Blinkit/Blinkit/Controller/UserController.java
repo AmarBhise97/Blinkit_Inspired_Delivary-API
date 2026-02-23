@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Blinkit.Blinkit.DTO.UserDto;
@@ -47,8 +48,8 @@ public class UserController {
 	}
 
 	@GetMapping("/getall")
-	public ResponseEntity<List<UserDto>> getAllUsers() throws BadRequestException, ResourceNotFoundException {
-		List<UserDto> users = userservice.getall(); // call service
+	public ResponseEntity<List<UserDto>> getAllUsers(@RequestParam(value="num")int num,@RequestParam(value="size")int size) throws BadRequestException, ResourceNotFoundException {
+		List<UserDto> users = userservice.getall(num ,size); // call service
 		if (users == null || users.isEmpty()) {
 			throw new ResourceNotFoundException("no any user in this system");
 		}

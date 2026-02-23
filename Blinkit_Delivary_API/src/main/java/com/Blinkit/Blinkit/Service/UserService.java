@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -189,8 +192,9 @@ public class UserService {
 		return "deletion successfull";
 	}
 
-	public List<UserDto> getall() {
-		return userrepo.findAll().stream().map((user) -> {
+	public List<UserDto> getall(int num ,int size) {
+		Pageable pageable = PageRequest.of(num, size);
+		return userrepo.findAll(pageable).stream().map((user) -> {
 			UserDto ud = new UserDto();
 			ud.setUserid(user.getUserid());
 			ud.setUsername(user.getUsername());

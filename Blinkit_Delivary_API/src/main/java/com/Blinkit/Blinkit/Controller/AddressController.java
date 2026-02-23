@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Blinkit.Blinkit.DTO.AddressDto;
@@ -54,8 +55,8 @@ public class AddressController {
 	}
 
 	@GetMapping("/getaddress")
-	public ResponseEntity<List<AddressDto>> getaddress() {
-		return addressservice.getaddress();
+	public ResponseEntity<List<AddressDto>> getaddress(@RequestParam(value = "num")int num,@RequestParam(value="Size") int size) {
+		return addressservice.getaddress(num,size);
 	}
 
 	@GetMapping("/getbyaddressid/{addressid}")

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Blinkit.Blinkit.DTO.ReviewDto;
@@ -43,9 +44,9 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/getallreview")
-	public List<ResponseEntity<ReviewDto>> getallreview(){
+	public List<ResponseEntity<ReviewDto>> getallreview(@RequestParam(value="num")int num,@RequestParam(value="size")int size){
 		
-		return reviewservice.getallreview();
+		return reviewservice.getallreview(num,size);
 	}
 
 }
